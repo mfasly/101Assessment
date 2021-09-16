@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+	parameters {
+		string(description: 'Project Name', name: 'PROJECT')
+		string(description: 'Enviromrnt Name', name: 'ENV')
+        string(description: 'Region name', name: 'REGIONNAME')
+        string(description: 'Release Version', name: 'RELESEVERSION')
+    }
+
+    environment {
+        PROJECT="${PROJECT}"
+        ENV="${ENV}"
+        REGIONNAME="${REGIONNAME}"
+        RELESEVERSION="${RELESEVERSION}"
+    }
+
+    stages {
+        stage('Get Kubeconfig') {
+            steps {
+                sh 'aws eks --region "$REGIONNAME" update-kubeconfig --name "$PROJECT"-"$ENV"'
+            }
+        }
+        
+        stage('Terraform Apply') {
+            steps {
+                sh 'helm upgrade --install "$PROJECT"-"$ENV" ./101application --set image.tag="$RELESEVERSION" --create-namespace -n 101app'
+            }
+        }
+    }
+}
