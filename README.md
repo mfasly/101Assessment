@@ -1,6 +1,10 @@
 # 101Assessment
 
-## 1. Implement Infrastructure
+## 1. Architecture
+
+![Architecture Diagram](documents/101.jpg)
+
+## 2. Implement Infrastructure
 
 ### Prerequisites
 
@@ -34,7 +38,7 @@ To delete infrastructure
 terrafrom destroy
 ```
 
-## 2. Deploy Application 
+## 3. Deploy Application 
 
 ### Prerequisites
 
