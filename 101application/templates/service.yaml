@@ -11,6 +11,5 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-      nodePort: 30010
   selector:
     {{- include "101application.selectorLabels" . | nindent 4 }}
