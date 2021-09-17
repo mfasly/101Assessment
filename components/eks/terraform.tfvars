@@ -1,8 +1,8 @@
 project             = "101"
 env                 = "prod"
 vpc_cidr_block      = "10.2.0.0/16"
-vpc_public_subnets  = { "us-east-1a" : "10.2.0.0/18", "us-east-1b" : "10.2.64.0/18" }
-vpc_private_subnets = { "us-east-1a" : "10.2.128.0/18", "us-east-1b" : "10.2.192.0/18" }
+vpc_public_subnets  = { "us-east-1a" : "10.1.0.0/18", "us-east-1b" : "10.1.64.0/18",  }
+vpc_private_subnets = { "us-east-1a" : "10.1.128.0/18", "us-east-1b" : "10.1.192.0/18" }
 eks_cluster_name    = "aws-eks"
 eks_eks_version     = "1.21"
 eks_node_group_desired_size = 1

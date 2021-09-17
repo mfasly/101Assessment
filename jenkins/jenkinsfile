@@ -21,7 +21,7 @@ pipeline {
             }
         }
         
-        stage('Terraform Apply') {
+        stage('Deployment') {
             steps {
                 sh 'helm dep up ./101application'
                 sh 'helm upgrade --install "$PROJECT"-"$ENV" ./101application --set image.tag="$RELESEVERSION" --create-namespace -n 101app'
